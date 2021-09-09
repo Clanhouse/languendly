@@ -22,6 +22,19 @@ def word_list(request, format=None):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view
+def word_detail(request,pk):
+    try:
+        word = Word.objects.get(pk=pk)
+        
+    except Word.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = WordSerializer(word)
+        return Response(serializer.data)
+
+
 @api_view(['GET', 'POST'])
 def language_list(request, format=None):
     """
