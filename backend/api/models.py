@@ -32,3 +32,4 @@ class Word(models.Model):
 
     class Meta:
         ordering = ['id']
+
