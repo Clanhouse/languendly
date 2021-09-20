@@ -2,32 +2,34 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Level(models.Model):
-    name = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.name
-
-class Language(models.Model):
-    name = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.name
-
 class Account(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    language_learnd = models.ForeignKey(Language, on_delete=models.CASCADE)
-    language_level = models.ForeignKey(Level, on_delete=models.CASCADE)
 
     class Meta:
         ordering = ['id']
 
 
 class Word(models.Model):
+    ENGLISH = 'ENG'
+    GERMAN = 'GER'
+
+    WORD_LANGUAGE = [
+        (ENGLISH, 'English'),
+        (GERMAN, 'German')
+    ]
+
+    BEGINER = 'A1'
+    INTERMEDIATE = 'B1'
+
+    WORD_LEVEL = [
+        (BEGINER, 'Beginer'),
+        (INTERMEDIATE, 'Intermediate')
+    ]
+
     word = models.CharField(max_length=30)
     translation = models.CharField(max_length=30)
-    language = models.ForeignKey(Language, related_name='lang', on_delete=models.CASCADE)
-    level = models.ForeignKey(Level, related_name='level', on_delete=models.CASCADE)
+    language = models.CharField(choices=WORD_LANGUAGE, max_length=3)
+    level = models.CharField(choices=WORD_LEVEL, max_length=2)
     description = models.TextField(blank=True, default='')
 
     class Meta:

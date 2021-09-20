@@ -1,13 +1,6 @@
 from django.contrib import admin
-from .models import Language, Level, Account, Word
+from .models import Word
 
-admin.site.register(Language)
-admin.site.register(Level)
-
-@admin.register(Account)
-class AccountAdmin(admin.ModelAdmin):
-    list_display = ('id','user','language_learnd','language_level')
-    list_filter = ('user',)
 
 @admin.register(Word)
 class WordAdmin(admin.ModelAdmin):
