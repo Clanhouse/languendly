@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Account, Word
+from api.models import Word
 
 
 class WordSerializer(serializers.ModelSerializer):
@@ -9,8 +9,3 @@ class WordSerializer(serializers.ModelSerializer):
         fields = ['id','word', 'translation', 'language', 'level', 'description']
         read_only_fields = ['id']
     
-
-class AccountSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Account
-        fields = ['user', 'language_learnd']
