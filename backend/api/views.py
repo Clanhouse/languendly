@@ -5,6 +5,14 @@ from rest_framework.views import APIView
 from api.models import Word
 from api.serializers import WordSerializer
 from .permissions import AdminOrReadOnly
+from rest_framework.decorators import api_view
+from rest_framework.reverse import reverse
+
+@api_view(['GET'])
+def api_root(request, format=None):
+    return Response({
+        'words': reverse('word_list', request=request, format=format),
+    })
 
 
 class WordList(APIView):
