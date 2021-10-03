@@ -17,10 +17,10 @@ class CustomRouter {
       settings: const RouteSettings(name: '/error'),
       builder: (_) => Scaffold(
         appBar: AppBar(
-          title: Text(Languages.error()),
+          title: Text(Strings.error()),
         ),
         body: Center(
-          child: Text(Languages.something_went_wrong()),
+          child: Text(Strings.something_went_wrong()),
         ),
       ),
     );
