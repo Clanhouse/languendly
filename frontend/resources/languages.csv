@@ -1,3 +1,22 @@
-str,en,pl
+str,pl,en
 something_went_wrong,something_went_wrong,something_went_wrong
 error,error,error
+email,email,email
+password,hasło,password
+forgot_your_password,Zapomniałeś hasła?,Forgot your password?
+sign_in,Zaloguj się,Sign in
+sign_up,Zarejestruj się,Sign up
+sign_out,Wyloguj,Sign out
+create_account,Utwórz konto,Create an account
+need_register,Nie masz konta? Zarejestruj się,Need an account? Register
+have_account_sign_in,Masz konto? Zaloguj się,Have an account? Sign in
+sign_in_with_google,Zaloguj się przez Google,Sign in with Google
+sign_in_with_facebook,Zaloguj się przez Facebook,Sign in with Facebook
+sign_in_with_email,Zaloguj się przez Email,Sign in with Email
+reset_password,Zresetuj hasło,reset_password
+reset_password_desc,Na Twój adres wysłaliśmy link do zrestowania hasła,reset_mail
+home,Pulpit,Home
+settings,Ustawienia,Settings
+name_not_available,Nazwa niedostępna,Name not available
+dark_mode,Tryb Ciemny,Dark Mode
+locale_app,Język aplikacji,Locale aplication
