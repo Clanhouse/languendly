@@ -1,3 +1,1 @@
-class Constants {
-  static languendly() => "Languendly";
-}
+class Constants {}
