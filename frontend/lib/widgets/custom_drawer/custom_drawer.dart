@@ -34,9 +34,7 @@ class CustomDrawer extends StatelessWidget {
           Item(
             icon: Icons.exit_to_app,
             text: Strings.sign_out(),
-            onTap: () {
-              context.read<AuthBloc>().add(AuthLogoutRequested());
-            },
+            onTap: () => context.read<AuthBloc>().signOut(),
           ),
         ],
       ),

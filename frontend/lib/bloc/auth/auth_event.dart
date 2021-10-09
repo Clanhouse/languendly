@@ -8,13 +8,21 @@ abstract class AuthEvent extends Equatable {
 }
 
 class AuthUserChanged extends AuthEvent {
-  final String? access;
-  final String? refresh;
+  final Auth? auth;
 
-  AuthUserChanged({required this.access, required this.refresh});
+  AuthUserChanged({required this.auth});
 
   @override
-  List<Object?> get props => [access, refresh];
+  List<Object?> get props => [auth];
+}
+
+class AuthRefreshToken extends AuthEvent {
+  final Auth? auth;
+
+  AuthRefreshToken({required this.auth});
+
+  @override
+  List<Object?> get props => [auth];
 }
 
 class AuthLogoutRequested extends AuthEvent {}
