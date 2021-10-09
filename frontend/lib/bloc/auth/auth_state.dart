@@ -34,7 +34,7 @@ class AuthState extends Equatable {
 
   factory AuthState.fromMap(Map<String, dynamic> map) {
     return AuthState(
-      auth: Auth.fromMap(map['access']),
+      auth: Auth.fromMap(map),
       status: Enums.toEnum(map['status'], EAuthStatus.values),
     );
   }

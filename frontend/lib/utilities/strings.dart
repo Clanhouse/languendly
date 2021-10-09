@@ -23,4 +23,7 @@ class Strings {
 
   static String home() => "home".tr();
   static String settings() => "settings".tr();
+
+  static String locale_app() => "locale_app".tr();
+  static String dark_mode() => "dark_mode".tr();
 }

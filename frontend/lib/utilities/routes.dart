@@ -13,6 +13,8 @@ class CustomRouter {
         return SplashScreen.route();
       case SignInScreen.routeName:
         return SignInScreen.route();
+      case SettingsScreen.routeName:
+        return SettingsScreen.route();
       default:
         return _errorRoute();
     }

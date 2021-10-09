@@ -27,7 +27,7 @@ class CustomDrawer extends StatelessWidget {
             icon: Icons.settings,
             text: Strings.settings(),
             onTap: () {
-              // Navigator.of(context).pushNamed(SettingsScreen.routeName);
+              Navigator.of(context).pushNamed(SettingsScreen.routeName);
             },
           ),
           Divider(),

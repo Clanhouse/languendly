@@ -45,63 +45,56 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
+    return MultiRepositoryProvider(
       providers: [
-        BlocProvider<DarkModeCubit>(
-          create: (context) => DarkModeCubit(),
+        RepositoryProvider<AuthRepository>(
+          create: (_) => AuthRepository(),
         ),
       ],
-      child: BlocBuilder<DarkModeCubit, bool>(
-        builder: (context, state) {
-          return MultiRepositoryProvider(
-            providers: [
-              RepositoryProvider<AuthRepository>(
-                create: (_) => AuthRepository(),
-              ),
-            ],
-            child: MultiBlocProvider(
-              providers: [
-                BlocProvider<DarkModeCubit>(
-                  create: (context) => DarkModeCubit(),
-                ),
-                BlocProvider<AuthBloc>(
-                  create: (context) => AuthBloc(
-                    authRepository: context.read<AuthRepository>(),
-                  ),
-                ),
-              ],
-              child: MaterialApp(
-                debugShowCheckedModeBanner: false,
-                localizationsDelegates: context.localizationDelegates,
-                supportedLocales: context.supportedLocales,
-                builder: BotToastInit(),
-                navigatorObservers: [BotToastNavigatorObserver()],
-                locale: context.locale,
-                title: Strings.languendly(),
-                theme: ThemeData(
-                  fontFamily: 'Georgia',
-                  appBarTheme: AppBarTheme(color: Color.fromRGBO(0, 103, 163, 1)),
-                  primaryColor: Color.fromRGBO(0, 103, 163, 1),
-                  scaffoldBackgroundColor: Color.fromRGBO(0, 121, 191, 1),
-                  elevatedButtonTheme: ElevatedButtonThemeData(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Color.fromRGBO(0, 103, 163, 1)),
-                      foregroundColor: MaterialStateProperty.all(Colors.white),
-                    ),
-                  ),
-                  cardColor: Colors.grey[200],
-                ),
-                darkTheme: ThemeData(
-                  fontFamily: 'Georgia',
-                  brightness: Brightness.dark,
-                ),
-                themeMode: state ? ThemeMode.dark : ThemeMode.light,
-                onGenerateRoute: CustomRouter.onGenerateRoute,
-                initialRoute: SplashScreen.routeName,
-              ),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<AuthBloc>(
+            create: (context) => AuthBloc(
+              authRepository: context.read<AuthRepository>(),
             ),
-          );
-        },
+          ),
+          BlocProvider<DarkModeCubit>(
+            create: (context) => DarkModeCubit(),
+          ),
+        ],
+        child: BlocBuilder<DarkModeCubit, bool>(
+          builder: (context, state) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              localizationsDelegates: context.localizationDelegates,
+              supportedLocales: context.supportedLocales,
+              builder: BotToastInit(),
+              navigatorObservers: [BotToastNavigatorObserver()],
+              locale: context.locale,
+              title: Strings.languendly(),
+              theme: ThemeData(
+                fontFamily: 'Georgia',
+                appBarTheme: AppBarTheme(color: Color.fromRGBO(0, 103, 163, 1)),
+                primaryColor: Color.fromRGBO(0, 103, 163, 1),
+                scaffoldBackgroundColor: Color.fromRGBO(0, 121, 191, 1),
+                elevatedButtonTheme: ElevatedButtonThemeData(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Color.fromRGBO(0, 103, 163, 1)),
+                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                  ),
+                ),
+                cardColor: Colors.grey[200],
+              ),
+              darkTheme: ThemeData(
+                fontFamily: 'Georgia',
+                brightness: Brightness.dark,
+              ),
+              themeMode: state ? ThemeMode.dark : ThemeMode.light,
+              onGenerateRoute: CustomRouter.onGenerateRoute,
+              initialRoute: SplashScreen.routeName,
+            );
+          },
+        ),
       ),
     );
   }
