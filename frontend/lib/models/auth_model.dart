@@ -18,8 +18,8 @@ class Auth extends Equatable {
 
   factory Auth.fromMap(Map<String, dynamic> map) {
     return Auth(
-      access: map['access'] as String,
-      refresh: map['refresh'] as String,
+      access: map['access'],
+      refresh: map['refresh'],
     );
   }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/bloc/bloc.dart';
+import 'package:frontend/utilities/utilities.dart';
 import 'package:frontend/widgets/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,7 +21,7 @@ class HomeScreen extends StatelessWidget {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: customAppBar(title: Strings.home()),
         drawer: CustomDrawer(),
         body: Column(
           children: [],
